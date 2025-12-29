@@ -2,7 +2,10 @@ export default function HelplineCard({ title, number }) {
   return (
     <div className="helpline-card">
       <h3>{title}</h3>
-      <button>CALL NOW</button>
+      <a href={`tel:${number}`} className="helpline-call-btn">
+  CALL NOW
+</a>
+
       <p>{number}</p>
     </div>
   );

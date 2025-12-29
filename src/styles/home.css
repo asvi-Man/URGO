@@ -1,6 +1,4 @@
-/* ===============================
-   PAGE WRAPPER + BACKGROUND
-================================ */
+
 
 .home-wrapper {
   position: relative;
@@ -93,7 +91,7 @@
 
 /* Button unchanged */
 .helpline-card button {
-  background: #4da3ff;
+  background: #df1818;
   border: none;
   color: #ffffff;
   padding: 10px 18px;
@@ -107,4 +105,30 @@
 
 footer {
   padding: 40px 0;
+}
+/* ===============================
+   HELPLINE CALL LINK (REAL CALL)
+   — does NOT disturb existing UI
+================================ */
+
+.helpline-call-btn {
+  display: inline-block;
+  margin-top: 16px;
+
+  background: #df1818; /* SAME as your button */
+  border: none;
+  color: #ffffff;
+
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.helpline-call-btn:hover {
+  opacity: 0.9;
 }

@@ -1,8 +1,29 @@
 import logo from "../assets/logo/urgo-logo.jpg";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Navbar() {
     const navigate = useNavigate();
+const [location, setLocation] = useState(null);
+    const [locationError, setLocationError] = useState("");
+    const handleShareLocation = () => {
+  setLocationError("");
+
+  if (!navigator.geolocation) {
+    setLocationError("Geolocation not supported by this browser");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const { latitude, longitude } = position.coords;
+      setLocation({ latitude, longitude });
+    },
+    () => {
+      setLocationError("Permission denied or location unavailable");
+    }
+  );
+};
 
   return (
     <nav style={styles.nav}>
@@ -20,9 +41,33 @@ export default function Navbar() {
   Login / Sign Up as Volunteer
          
         </button>
-        <button style={{ ...styles.btn, background: "var(--accent-blue)" }}>
-          Emergency Helplines
-        </button>
+        <button
+  className="nav-btn helpline-btn"
+  onClick={handleShareLocation}
+>
+  Share My Location
+</button> 
+{location && (
+  <div style={{ color: "#c41515ff", fontSize: "14px", marginTop: "8px" }}>
+    📍 Latitude: {location.latitude.toFixed(5)} <br />
+    📍 Longitude: {location.longitude.toFixed(5)} <br />
+    <a
+      href={`https://www.google.com/maps?q=${location.latitude},${location.longitude}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ color: "#4da3ff" }}
+    >
+      View on Google Maps
+    </a>
+  </div>
+)}
+
+{locationError && (
+  <p style={{ color: "red", fontSize: "14px" }}>
+    {locationError}
+  </p>
+)}
+
         <button style={{ ...styles.btn, background: "var(--accent-gray)" }}>
           How It Works
         </button>
@@ -51,7 +96,7 @@ const styles = {
     border: "none",
     padding: "10px 16px",
     borderRadius: "20px",
-    color: "#fff",
+    color: "#ffffffff",
     cursor: "pointer",
     fontSize: "14px",
     },
