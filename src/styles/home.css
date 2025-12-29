@@ -1,0 +1,110 @@
+/* ===============================
+   PAGE WRAPPER + BACKGROUND
+================================ */
+
+.home-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.home-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    linear-gradient(
+      rgba(10, 15, 20, 0.85),
+      rgba(10, 15, 20, 0.85)
+    ),
+    url("../assets/image/rescue1.jpeg");
+
+  background-size: cover;
+  background-position: center;
+  filter: blur(16px);
+  transform: scale(1.1);
+}
+
+.home-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===============================
+   HERO + IMAGE GRID ROW
+================================ */
+
+.hero-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* 🔑 CRITICAL FIX */
+  gap: 64px;
+  padding: 60px 80px;
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 520px;
+}
+
+.hero-right {
+  flex: 0;
+}
+
+/* ===============================
+   IMAGE GRID (NO ALIGNMENT DRIFT)
+================================ */
+
+.hero-right > div {
+  margin-top: 0;
+}
+
+/* ===============================
+   HELPLINE SECTION
+================================ */
+
+.helpline-section {
+  padding: 40px 80px 80px;
+}
+
+.helpline-section h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: #ffffff;
+}
+
+.helpline-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ===============================
+   HELPLINE CARD — LOCKED
+================================ */
+
+.helpline-card {
+  background: rgba(20, 25, 32, 0.92);
+  border-radius: 18px;
+  padding: 28px;
+  text-align: center;
+}
+
+/* Button unchanged */
+.helpline-card button {
+  background: #4da3ff;
+  border: none;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+footer {
+  padding: 40px 0;
+}

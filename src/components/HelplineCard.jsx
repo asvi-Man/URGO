@@ -1,12 +1,13 @@
 export default function HelplineCard({ title, number }) {
   return (
-    <div style={styles.card}>
+    <div className="helpline-card">
       <h3>{title}</h3>
-      <button style={styles.call}>CALL NOW</button>
+      <button>CALL NOW</button>
       <p>{number}</p>
     </div>
   );
 }
+
 
 const styles = {
   card: {

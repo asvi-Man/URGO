@@ -3,28 +3,40 @@ import Hero from "../components/Hero";
 import ImageGrid from "../components/ImageGrid";
 import HelplineCard from "../components/HelplineCard";
 import Footer from "../components/Footer";
+import "../styles/home.css";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
+    <div className="home-wrapper">
+      <div className="home-bg" />
 
-      <main style={{ display: "flex", gap: "60px", padding: "50px" }}>
-        <Hero />
-        <ImageGrid />
-      </main>
+      <div className="home-content">
+        <Navbar />
 
-      <section style={{ padding: "50px" }}>
-        <h2>Emergency Helplines</h2>
-        <div style={{ display: "flex", gap: "24px", marginTop: "24px" }}>
-          <HelplineCard title="Hospital" number="108" />
-          <HelplineCard title="Police" number="100" />
-          <HelplineCard title="Fire" number="101" />
-          <HelplineCard title="Disaster Relief" number="108" />
-        </div>
-      </section>
+        {/* HERO + IMAGES ROW */}
+        <section className="hero-row">
+          <div className="hero-left">
+            <Hero />
+          </div>
 
-      <Footer />
-    </>
+          <div className="hero-right">
+            <ImageGrid />
+          </div>
+        </section>
+
+        {/* HELPLINES — unchanged */}
+        <section className="helpline-section">
+          <h2>Emergency Helplines</h2>
+          <div className="helpline-grid">
+            <HelplineCard title="Hospital" number="108" />
+            <HelplineCard title="Police" number="100" />
+            <HelplineCard title="Fire" number="101" />
+            <HelplineCard title="Disaster Relief" number="108" />
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    </div>
   );
 }

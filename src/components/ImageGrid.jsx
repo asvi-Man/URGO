@@ -7,27 +7,35 @@ export default function ImageGrid() {
   const images = [img1, img2, img3, img4];
 
   return (
-    <div style={styles.grid}>
-      {images.map((img, index) => (
-        <img
-          key={index}
-          src={img}
-          alt="Emergency response"
-          style={styles.image}
-        />
-      ))}
+    <div style={styles.wrapper}>
+      <div style={styles.grid}>
+        {images.map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            alt="Emergency response"
+            style={styles.image}
+          />
+        ))}
+      </div>
     </div>
   );
 }
 
 const styles = {
+  wrapper: {
+    display: "flex",
+    justifyContent: "flex-end", // keeps grid on right side like before
+  },
+
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
+    gridTemplateColumns: "repeat(2, 220px)", // EXACT original visual size
     gap: "16px",
   },
+
   image: {
-    width: "220px",
+    width: "100%",
     height: "140px",
     objectFit: "cover",
     borderRadius: "12px",

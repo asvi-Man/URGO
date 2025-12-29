@@ -1,17 +1,14 @@
 export default function Hero() {
   return (
-    <div style={styles.hero}>
-      <h1 style={styles.heading}>
-        COORDINATION IN CRISIS:
-        <br />
-        UNIFYING HELPING HANDS.
-        <br />
-        SAVING LIVES
-      </h1>
-      <p style={styles.tagline}>Connect. Respond. Rebuild.</p>
+    <div className="hero hero-reset">
+      <h1>COORDINATION IN CRISIS:</h1>
+      <h1>UNIFYING HELPING HANDS.</h1>
+      <h1>SAVING LIVES</h1>
+      <p>Connect. Respond. Rebuild.</p>
     </div>
   );
 }
+
 
 const styles = {
   hero: {
